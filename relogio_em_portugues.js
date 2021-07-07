@@ -154,7 +154,7 @@ const relogio = {
         if( valores.minuto === 30 )
             expressao = relogio.gerarHora( valores.hora ) + ' e meia'
         else if( relogio.paraAs.includes( valores.minuto ) )
-            expressao = relogio.gerarMinuto( 60 - valores.minuto ) + ' para as ' + relogio.gerarHora( valores.hora + 1 === 24 ? 0 : valores.hora + 1 )
+            expressao = relogio.gerarMinuto( 60 - valores.minuto ) + ' para ' + ( [ 0, 11, 23 ].includes( valores.hora ) ? '' : ' as ' ) + relogio.gerarHora( valores.hora + 1 === 24 ? 0 : valores.hora + 1 )
         else
             expressao = relogio.gerarHora( valores.hora ) + ' e ' + relogio.gerarMinuto( valores.minuto )
         
@@ -178,3 +178,4 @@ const relogio = {
         }, 1000)
     }
 }
+
